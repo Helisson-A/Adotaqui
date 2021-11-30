@@ -1,0 +1,40 @@
+<div class="profile-container">
+
+    <div class="grid-profile">
+
+        <div class="side-bar">
+            <div class="profile-img">
+                <img [src]="profileUser?.FotoUser" alt="">
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-header">
+                <p> {{ profileUser?.Nome || 'user'}} </p>
+                <div class="badges">
+                    <div class="badge-item">
+                        <img src="./assets/image/home.svg" alt="">
+                        <p> {{profileUser?.NomeInstit}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-container">
+                <p> Um pouquinho sobre mim: </p>
+                <div class="about-text">
+                    <p> {{ profileUser.SobreInstit || 'Nenhuma descrição' }} </p>
+                </div>
+            </div>
+            <div class="container-flex">
+                <app-pet-card 
+                    *ngFor="let pet of pets"
+                    [nome]="pet.NomeAnimal"
+                    [sexo]="pet.Sexo"
+                    [foto]="pet.ImagemAnimal"    
+                >
+                </app-pet-card>
+            </div>
+        </div>
+
+    </div>
+
+</div>

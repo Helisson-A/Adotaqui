@@ -1,0 +1,13 @@
+<div class="comment-container">
+
+    <div class="comment-title">
+        <p> {{ title }} </p>
+    </div>
+    <div class="comment-response">
+        <p> {{response}} </p>
+    </div>
+    <div class="form-control" *ngIf="IdDono === Iduser ">
+        <input type="text" [(ngModel)]="reply">
+        <button [disabled]="reply === ''" type="button" (click)="postReply()"> Enviar </button>
+    </div>
+</div>  

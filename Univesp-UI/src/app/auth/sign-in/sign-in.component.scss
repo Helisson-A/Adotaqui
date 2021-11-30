@@ -1,0 +1,146 @@
+.signin-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    .signin-box{
+        min-width: 1167px;
+        backdrop-filter: blur(10px) saturate(100%);
+        -webkit-backdrop-filter: blur(10px) saturate(100%);
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.125);
+        margin-top: 50px;
+
+        box-shadow: 0px 3px 6px #00000026;
+        background-color: #f0f0f0b3;
+
+        align-self: center;
+        vertical-align: middle;
+
+        display: grid;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+}
+
+.signin-box{
+        padding: 40px 20px;
+    p{
+        font-weight: bold;
+        font-size: 18px;
+        color: #4465A6;
+    }
+    p:hover{
+        color: #224488;
+        cursor: pointer;
+    }
+    form{
+
+        display: grid;
+        width:  997px;
+        max-width: 997px;
+        flex-direction: column;
+        justify-self: start;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+
+        .grid-1{
+            grid-column: span 1;
+        }
+        .grid-2{
+            grid-column: span 2;
+        }
+        .grid-3{
+            grid-column: span 3;
+        }
+        .grid-4{
+            grid-column: span 4;
+        }
+
+        .signin-inline-group{
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+            height: 60px;
+
+            input[type="checkbox"]{
+                width: 25px;
+                height: 25px;
+                border-radius: 5px;
+                border: none ;
+                align-self: center;
+            }
+            label{
+                align-self: center;
+
+                span{
+                    color: red;
+                }
+            }
+        }
+
+        .signin-box-group{
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+
+            label{
+                span{
+                    color: red;
+                }
+            }
+
+            textarea{
+                resize: none;
+            }
+
+            input, button{
+                font-size: 16px;
+                height: 40px;
+            }
+
+            input, textarea{
+                border: none;
+                background: #fff;
+                padding: 5px;
+                padding-left: 15px;
+                border-radius: 5px;
+            }
+            input:focus, textarea:focus{
+                outline: none;
+                background: #fff;
+                box-shadow: inset 0px 3px 6px #00000020;
+                outline: none !important;
+            }
+            input:hover{
+                background: #fff;
+            }
+    
+            button.signin{
+                width: 300px;
+                height: 45px;
+                border: none;
+                border-radius: 5px;
+                background-color: #4465A6;
+                color: white;
+                align-self: center;
+    
+                font-weight: bold;
+                font-size: 18px;
+                margin-top: 20px;
+                transition: .2s;
+            }
+    
+            button.signin:hover{
+                background-color: #224488;
+                color: white;
+                cursor: pointer;
+                transition: .2s;
+            }
+        }
+
+    }
+
+}

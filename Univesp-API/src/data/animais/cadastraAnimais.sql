@@ -1,0 +1,28 @@
+INSERT INTO T_Animais
+(
+    IdDoador,
+    NomeAnimal,
+    Sexo,
+    Idade,
+    Porte,
+    ImagemAnimal,
+    IdEspecie,
+    BitCastrado,
+    BitVacinado,
+    BitVermifugado,
+    DescricaoAnimal
+)
+VALUES
+(
+    @IdDoador,
+    @NomeAnimal,
+    @Sexo,
+    @Idade,
+    @Porte,
+    @ImagemAnimal,
+    @IdEspecie,
+    @BitCastrado,
+    @BitVacinado,
+    @BitVermifugado,
+    @DescricaoAnimal
+)

@@ -1,0 +1,23 @@
+<div class="login-container">
+    <div class="login-box">
+
+        <form [formGroup]="formLogin" (submit)="login()">
+            <div class="login-box-group">
+                <label for=""> login </label>
+                <input type="text" formControlName="EmailAcesso" autocomplete="off">
+            </div>
+            <div class="login-box-group">
+                <label for=""> senha </label>
+                <input type="password" formControlName="Senha" autocomplete="off">
+            </div>
+            <div class="login-box-group">
+                <button class="login"> Login </button>
+            </div>
+            <div class="login-box-footer">
+                <p> Não é cadastrado? </p>
+                <a [routerLink]="['/signin']" routerLinkActive="router-link-active" > crie uma conta </a>
+            </div>
+        </form>
+
+    </div>
+</div>

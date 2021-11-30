@@ -1,0 +1,133 @@
+<div class="profile-container">
+
+    <div class="grid-profile">
+
+        <div class="side-bar">
+            <div class="profile-img">
+                <img [src]="profilePet?.ImagemAnimal" alt="">
+            </div>
+            <div class="gallery">
+                <p> Mais fotos </p>
+                <div class="gallery-itens" >
+                    <img src="https://catlandstorage.blob.core.windows.net/catland/catland/3441/352d55a3-1bef-4e01-a916-064b77e06d16.jpg">
+                    <img src="https://catlandstorage.blob.core.windows.net/catland/catland/3441/0389a80c-08f3-4417-b0f5-7c69b4100d4f.jpg">
+                    <img src="https://catlandstorage.blob.core.windows.net/catland/catland/3441/1256e941-2b9e-4fe4-8490-732b8d4baa0c.jpg">
+                    <img src="https://catlandstorage.blob.core.windows.net/catland/catland/3441/933a180a-5557-43ef-8624-692f29fdf279.jpg">
+                    
+                </div>
+            </div>
+            <div class="owner">
+                <p> Divulgado por: </p>
+                <div class="owner-card">
+                    <img [src]="profile.FotoUser" [routerLink]="['/profileUser/' + profile.IdUsuario]" routerLinkActive="router-link-active"  alt="">
+                    <div class="owner-info">
+                        <p> {{ profile?.Nome }} </p>
+
+                        <div class="institution-info">
+                            <p class="title"> 
+                                instituição
+                            </p>
+                            <p class="institution-name">
+                                {{ profile.NomeInstit }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="profile-header">
+                <p> {{ profilePet?.nomeAnimal || 'user'}} </p>
+                <div class="badges">
+
+                    <div *ngIf="profilePet?.Sexo === 'Femea'; then female ;else male">
+                    </div>
+                    <ng-template class="badge-item" #male>
+                        <div class="badge-item">
+                            <img src="./assets/image/male.svg" alt="">
+                            <p> Macho </p>
+                        </div>
+                    </ng-template>
+                    <ng-template class="badge-item" #female>
+                        <div class="badge-item">
+                            <img src="./assets/image/female.svg" alt="">
+                            <p> Femea </p>
+                        </div>
+                    </ng-template>
+
+                    <div class="badge-item">
+                        <img src="./assets/image/years.svg" alt="">
+                        <p> {{ profilePet?.idade }} </p>
+                    </div>
+                    <div class="badge-item">
+                        <img src="./assets/image/port.svg" alt="">
+                        <p> {{profilePet?.Porte}} </p>
+                    </div>
+                    <div class="badge-item">
+                        <img src="./assets/image/home.svg" alt="">
+                        <p> {{profile?.NomeInstit}} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="checklist">
+                <div class="list-item" *ngIf="profilePet?.bitCastrado">
+                    <img src="./assets/image/check.svg" alt="">
+                    <p> Castrado </p>
+                </div>
+                <div class="list-item" *ngIf="profilePet?.bitVacinado">
+                    <img src="./assets/image/check.svg" alt="">
+                    <p> Vacinado </p>
+                </div>
+                <div class="list-item" *ngIf="profilePet?.bitVermifugado">
+                    <img src="./assets/image/check.svg" alt="">
+                    <p> Vermifugado </p>
+                </div>
+            </div>
+            <div class="about-container">
+                <p> Um pouquinho sobre mim: </p>
+                <div class="about-text">
+                    <p> {{ profilePet.DescricaoAnimal || 'Nenhuma descrição' }} </p>
+                </div>
+            </div>
+            <ng-container *ngIf="isLogg; else nLogin"> 
+                <a  href="https://api.whatsapp.com/send?phone=+55{{profile.Celular}}" target="_blank" class="wpp-button">
+                    Whatsapp
+                    <img src="./assets/image/wpp.svg" alt="">
+                </a>
+            </ng-container>
+            <ng-template #nLogin>
+                <a  [routerLink]="['/login']" class="wpp-button">
+                    Faça login
+                </a>
+            </ng-template>
+            <div class="container-flex">
+                <div class="ask-section">
+                    <ng-container *ngIf="isLogg; else nComment">
+                        <textarea cols="30" rows="3" placeholder="Deixe sua pergunta aqui" [(ngModel)]="pergunta" ></textarea>
+                        <button (click)="PostPergunta()" [disabled]="pergunta === ''" > Perguntar </button> 
+                    </ng-container>
+                    <ng-template #nComment>
+                        <textarea cols="30" rows="3" placeholder="Deixe sua pergunta aqui" [(ngModel)]="pergunta" ></textarea>
+                        <button [routerLink]="['/login']" > Faça Login </button>
+                    </ng-template>
+                </div>
+                <p> As pessoas também perguntaram: </p>
+                <app-comments 
+                    *ngFor="let comentario of comentarios"
+                    [title]="comentario.Comentario"
+                    [response]="comentario.Resposta"
+                    [IdDono]="profile.IdUsuario"
+                    [Iduser]="idUser"
+                    [IdAnimal]="profilePet.IdAnimal"
+                    [IdComentario]="comentario.IdComentario"
+                    [IdDoador]="profilePet.IdDoador"
+                >
+                <!--  uai -->
+                </app-comments>
+            </div>
+        </div>
+
+    </div>
+
+</div>

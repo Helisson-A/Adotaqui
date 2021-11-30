@@ -1,0 +1,26 @@
+<div class="nav-container">
+    <div class="itens-group">
+        <img src="./assets/image/brand.svg" alt="" class="brand" [routerLink]="['home']">
+        <p [routerLink]="['home']"> Home </p>
+        <!-- <p [routerLink]="['sobreNos']"> Sobre nós </p> -->
+        <div class="user-area">
+            <button 
+                [routerLink]="['/petregister']"    
+            >
+                Cadastrar pet
+            </button>
+            <span *ngIf="profile != ''" > 
+                Olá, &nbsp;<b [routerLink]="['/profileUser/' + idUser]"> {{ profile }} </b>
+                <mat-icon [matMenuTriggerFor]="menuUser" > arrow_drop_down </mat-icon>
+                <mat-menu #menuUser> 
+                    <button mat-menu-item (click)="logOut()" class="menu-item"> 
+                        <span> Fazer log-out </span>
+                        &nbsp;
+                        &nbsp;
+                        <mat-icon> logout </mat-icon>
+                    </button>
+                </mat-menu>
+            </span>
+        </div>
+    </div>
+</div>

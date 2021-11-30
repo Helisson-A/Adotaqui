@@ -1,0 +1,78 @@
+<div class="petRegister-container">
+
+    <div class="petRegister-box">
+        <form [formGroup]="formCadPet" (ngSubmit)="submit()">
+        
+            <div class="form-group grid-4">
+                <label for=""> Nome completo </label>
+                <input type="text" formControlName="NomeAnimal" autocomplete="false">
+            </div>
+    
+            <div class="form-group grid-2">
+                <label for=""> Especie </label>
+                <select name="select" formControlName="IdEspecie" autocomplete="false">
+                    <option value="1">Cachorro</option>
+                    <option value="2">Gato</option>
+                </select>
+            </div>
+    
+            <div class="form-group grid-2">
+                <label for=""> Sexo </label>
+                <select name="select" formControlName="Sexo" autocomplete="false">
+                    <option value="Macho">Macho</option>
+                    <option value="Femea">Femea</option>
+                </select>
+            </div>
+    
+            <div class="form-group grid-2">
+                <label for=""> Idade </label>
+                <input type="text" formControlName="Idade" autocomplete="false">
+            </div>
+    
+            <div class="form-group grid-2">
+                <label for=""> Porte </label>
+                <select name="select" formControlName="Porte" autocomplete="false">
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                </select>
+            </div>
+    
+            <div class="drag-area grid-4">
+                <p> Arraste aqui </p>
+                <p> ou </p>
+                <div class="button-file">
+                    <label for="upload" class="button-file"> Enviar fotos </label>
+                </div>
+                <!-- <input type="file" id="upload" formControlName="ImagemAnimal" onchange="console.log(event.target.files)"> -->
+            </div>
+    
+            <div class="checkbox-container grid-4">
+                <div class="checbox-group">
+                    <input type="checkbox" formControlName="BitCastrado">
+                    <label for=""> Castrado </label>
+                </div>
+                <div class="checbox-group">
+                    <input type="checkbox" formControlName="BitVacinado">
+                    <label for=""> Vacinado </label>
+                </div>
+                <div class="checbox-group">
+                    <input type="checkbox" formControlName="BitVermifugado">
+                    <label for=""> Vermifulgado </label>
+                </div>
+            </div>
+    
+            <div class="form-group  grid-4">
+                <label for=""> Descrição do animal </label>
+                <textarea autocomplete="false"
+                    cols="100"
+                    rows="10"
+                    formControlName="DescricaoAnimal"></textarea>
+            </div>
+            <div class="form-group grid-4"> 
+                <button class="signin" type="submit"> Concluir cadastro </button>
+            </div>
+        </form>
+    </div>
+
+</div>

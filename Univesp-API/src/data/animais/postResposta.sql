@@ -1,0 +1,1 @@
+update T_Comentarios set Resposta = @Resposta where IdComentario = @IdComentario and IdAnimal = @IdAnimal

@@ -1,0 +1,90 @@
+<div class="signin-container">
+
+    <div class="signin-box">
+        <p [routerLink]="['/']" routerLinkActive="router-link-active"> Voltar </p>
+        <form [formGroup]="formSignIn" (submit)="signin()" autocomplete="off">
+            
+            <p> Dados pessoais </p>
+            <div class="signin-box-group grid-4">
+                <label for=""> Nome Completo <span> * </span> </label>
+                <input type="text" formControlName="Nome" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-2">
+                <label for=""> Data nascimento <span> * </span> </label>
+                <input type="date" formControlName="DataNasc" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-2">
+                <label for=""> Celular/Whatsapp <span> * </span> </label>
+                <input 
+                    type="text" 
+                    formControlName="Celular" 
+                    autocomplete="false"
+                    >
+            </div>
+
+            <p> Informações de acesso</p>
+            <div class="signin-box-group grid-4">
+                <label for=""> Email <span> * </span> </label>
+                <input type="email" formControlName="EmailAcesso" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-4">
+                <label for=""> Senha <span> * </span> </label>
+                <input type="password" formControlName="Senha" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-4">
+                <label for=""> Confirmar Senha <span> * </span> </label>
+                <input type="password" formControlName="ConfSenha" autocomplete="false">
+            </div>
+
+            <p> Dados de endereço </p>
+            <div class="signin-box-group grid-4">
+                <label for=""> Rua </label>
+                <input type="text" formControlName="EndRua" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-2">
+                <label for=""> Numero </label>
+                <input type="number" formControlName="Numero" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-2">
+                <label for=""> Bairro </label>
+                <input type="text" formControlName="Bairro" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-2">
+                <label for=""> Cidade <span> * </span> </label>
+                <input type="text" formControlName="Cidade" autocomplete="false" readonly value="Hortolândia">
+            </div>
+            <div class="signin-box-group grid-2">
+                <label for=""> Complemento  <span title="Responde ai"> ? </span></label>
+                <input type="text" formControlName="Complemento" autocomplete="false">
+            </div>
+
+            <div class="signin-inline-group grid-2">
+                <input type="checkbox" formControlName="BitInstit" autocomplete="false">
+                <label for=""> Represento uma instituição </label>
+            </div>
+
+            <div class="signin-box-group grid-4" *ngIf="formSignIn.controls['BitInstit'].value === true">
+                <label for=""> Nome da instituição </label>
+                <input type="text" formControlName="NomeInstit" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-4" *ngIf="formSignIn.controls['BitInstit'].value === true">
+                <label for=""> Site da instituição </label>
+                <input type="text" formControlName="SiteInstit" autocomplete="false">
+            </div>
+            <div class="signin-box-group grid-4" *ngIf="formSignIn.controls['BitInstit'].value === true">
+                <label for=""> Sobre a instituição </label>
+                <textarea 
+                    type="text" 
+                    formControlName="SobreInstit" 
+                    autocomplete="false"
+                    cols="100"
+                    rows="10"
+                > </textarea>
+            </div>
+            <div class="signin-box-group grid-4"> 
+                <button class="signin" type="submit"> Concluir cadastro </button>
+            </div>
+        </form>
+
+    </div>
+</div>
